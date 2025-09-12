@@ -177,6 +177,7 @@ export function MainForm({ onLogout, username }: MainFormProps) {
                   value={formData.endDate}
                   onChange={(date) => setFormData(prev => ({ ...prev, endDate: date }))}
                   error={errors.endDate}
+                  minDate={formData.startDate}
                 />
               </div>
             </CardContent>
