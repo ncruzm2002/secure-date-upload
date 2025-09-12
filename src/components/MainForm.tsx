@@ -123,18 +123,27 @@ export function MainForm({ onLogout, username }: MainFormProps) {
                         Object.keys(errors).length === 0;
 
   return (
-    <div className="min-h-screen bg-gradient-secondary p-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-secondary p-4 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_hsl(var(--primary))_0%,_transparent_50%)] opacity-10"></div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">Panel Principal</h1>
-            <p className="text-muted-foreground">Bienvenido, {username}</p>
+        <div className="flex justify-between items-center mb-8 p-6 bg-gradient-card rounded-lg border border-border/50 shadow-glow backdrop-blur-sm">
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent animate-float">
+              Panel Principal
+            </h1>
+            <p className="text-muted-foreground flex items-center gap-2">
+              <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+              Bienvenido, <span className="font-semibold text-accent-foreground">{username}</span>
+            </p>
           </div>
           <Button 
             variant="outline" 
             onClick={onLogout}
-            className="border-input hover:bg-secondary"
+            className="border-border/50 hover:bg-secondary/50 hover:border-primary/50 transition-all duration-300 hover:shadow-soft backdrop-blur-sm"
           >
             <LogOut className="w-4 h-4 mr-2" />
             Cerrar Sesión
@@ -142,14 +151,20 @@ export function MainForm({ onLogout, username }: MainFormProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <Card className="shadow-medium bg-gradient-card border-0">
-            <CardHeader>
-              <CardTitle className="text-xl text-foreground">Configuración de Fechas</CardTitle>
+          <Card className="shadow-strong bg-gradient-card border border-border/50 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-2xl text-foreground flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                  <FileText className="w-5 h-5 text-primary-foreground" />
+                </div>
+                Configuración de Fechas
+              </CardTitle>
               <CardDescription>
                 Selecciona el período de procesamiento (mes y año)
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-6">
                 <DateMonthYearPicker
                   label="Fecha de Inicio"
@@ -167,14 +182,20 @@ export function MainForm({ onLogout, username }: MainFormProps) {
             </CardContent>
           </Card>
 
-          <Card className="shadow-medium bg-gradient-card border-0">
-            <CardHeader>
-              <CardTitle className="text-xl text-foreground">Carga de Archivos</CardTitle>
+          <Card className="shadow-strong bg-gradient-card border border-border/50 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10"></div>
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-2xl text-foreground flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow animate-pulse">
+                  <Shield className="w-5 h-5 text-primary-foreground" />
+                </div>
+                Carga de Archivos
+              </CardTitle>
               <CardDescription>
                 Sube los tres archivos requeridos para el procesamiento
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 relative z-10">
               <div className="grid gap-6">
                 <FileUpload
                   label="Archivo de Texto (.txt)"
@@ -203,10 +224,10 @@ export function MainForm({ onLogout, username }: MainFormProps) {
 
           {/* Progress Indicator */}
           {allFieldsValid && (
-            <Alert className="border-success bg-success/10">
-              <CheckCircle className="h-4 w-4 text-success" />
-              <AlertDescription className="text-success">
-                Todos los campos están completos. Puedes proceder con el envío.
+            <Alert className="border-success bg-success/10 shadow-glow animate-pulse backdrop-blur-sm">
+              <CheckCircle className="h-5 w-5 text-success animate-spin-slow" />
+              <AlertDescription className="text-success font-medium">
+                🎉 Todos los campos están completos. Puedes proceder con el envío.
               </AlertDescription>
             </Alert>
           )}
@@ -215,16 +236,16 @@ export function MainForm({ onLogout, username }: MainFormProps) {
             <Button 
               type="submit" 
               disabled={!allFieldsValid || isSubmitting}
-              className="bg-gradient-primary hover:bg-primary-hover transition-all duration-300 shadow-soft hover:shadow-medium font-medium px-8"
+              className="bg-gradient-primary hover:bg-primary-hover transition-all duration-500 shadow-glow hover:shadow-strong font-semibold px-12 py-3 text-lg hover:scale-105 disabled:hover:scale-100"
             >
               {isSubmitting ? (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></div>
-                  Procesando...
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></div>
+                  <span className="animate-pulse">Procesando...</span>
                 </div>
               ) : (
-                <div className="flex items-center gap-2">
-                  <Send className="w-4 h-4" />
+                <div className="flex items-center gap-3">
+                  <Send className="w-5 h-5 animate-float" />
                   Procesar Archivos
                 </div>
               )}

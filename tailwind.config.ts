@@ -61,11 +61,15 @@ export default {
         "gradient-primary": "var(--gradient-primary)",
         "gradient-secondary": "var(--gradient-secondary)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-glow": "var(--gradient-glow)",
       },
       boxShadow: {
         soft: "var(--shadow-soft)",
         medium: "var(--shadow-medium)",
         strong: "var(--shadow-strong)",
+        glow: "var(--shadow-glow)",
+        inner: "var(--shadow-inner)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,10 +93,30 @@ export default {
             height: "0",
           },
         },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
+        "glow": {
+          from: {
+            filter: "drop-shadow(0 0 5px hsl(var(--primary)))",
+          },
+          to: {
+            filter: "drop-shadow(0 0 20px hsl(var(--primary))) drop-shadow(0 0 35px hsl(var(--primary)))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 3s ease-in-out infinite",
+        "glow": "glow 2s ease-in-out infinite alternate",
+        "spin-slow": "spin 3s linear infinite",
+        "bounce-slow": "bounce 2s infinite",
       },
     },
   },

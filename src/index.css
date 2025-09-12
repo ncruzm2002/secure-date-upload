@@ -8,50 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 25% 98%;
-    --foreground: 220 15% 15%;
+    --background: 210 30% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 210 25% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 210 25% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 220 90% 56%;
+    --primary: 268 83% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 90% 48%;
+    --primary-hover: 268 83% 50%;
 
-    --secondary: 210 20% 95%;
-    --secondary-foreground: 220 15% 25%;
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 210 40% 90%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 210 20% 12%;
+    --muted-foreground: 210 15% 60%;
 
-    --accent: 210 90% 88%;
-    --accent-foreground: 220 90% 20%;
+    --accent: 268 60% 20%;
+    --accent-foreground: 268 83% 78%;
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 120 50% 45%;
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
     --warning: 45 90% 55%;
     --warning-foreground: 45 20% 15%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 92%;
-    --ring: 220 90% 56%;
+    --border: 210 20% 20%;
+    --input: 210 20% 16%;
+    --ring: 268 83% 58%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220, 90%, 56%), hsl(220, 90%, 48%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210, 25%, 98%), hsl(210, 20%, 95%));
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 20%, 98%));
+    /* Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(268, 83%, 58%), hsl(285, 85%, 68%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210, 25%, 8%), hsl(210, 30%, 12%));
+    --gradient-card: linear-gradient(145deg, hsl(210, 25%, 10%), hsl(210, 20%, 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(268, 83%, 58%) 0%, hsl(285, 85%, 68%) 50%, hsl(320, 85%, 60%) 100%);
+    --gradient-glow: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), hsl(268, 83%, 58%, 0.15), transparent 40%);
 
-    /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(220, 90%, 56%, 0.15);
-    --shadow-medium: 0 8px 24px -4px hsl(220, 90%, 56%, 0.2);
-    --shadow-strong: 0 16px 48px -8px hsl(220, 90%, 56%, 0.25);
+    /* Enhanced Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(268, 83%, 58%, 0.3);
+    --shadow-medium: 0 8px 24px -4px hsl(268, 83%, 58%, 0.4);
+    --shadow-strong: 0 16px 48px -8px hsl(268, 83%, 58%, 0.5);
+    --shadow-glow: 0 0 40px hsl(268, 83%, 58%, 0.3);
+    --shadow-inner: inset 0 1px 0 0 hsl(210, 40%, 98%, 0.05);
 
     --radius: 0.5rem;
 
