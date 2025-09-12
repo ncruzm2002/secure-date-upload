@@ -124,26 +124,27 @@ export function MainForm({ onLogout, username }: MainFormProps) {
 
   return (
     <div className="min-h-screen bg-gradient-secondary p-4 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_hsl(var(--primary))_0%,_transparent_50%)] opacity-10"></div>
+      {/* Subtle background effects */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-10"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-2xl"></div>
       
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8 p-6 bg-gradient-card rounded-lg border border-border/50 shadow-glow backdrop-blur-sm">
+        <div className="flex justify-between items-center mb-8 p-6 bg-gradient-card rounded-xl border border-border shadow-soft backdrop-blur-sm">
           <div className="space-y-2">
-            <h1 className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent animate-float">
+            <h1 className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent">
               Panel Principal
             </h1>
             <p className="text-muted-foreground flex items-center gap-2">
               <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-              Bienvenido, <span className="font-semibold text-accent-foreground">{username}</span>
+              Bienvenido, <span className="font-semibold text-primary">{username}</span>
             </p>
           </div>
           <Button 
             variant="outline" 
             onClick={onLogout}
-            className="border-border/50 hover:bg-secondary/50 hover:border-primary/50 transition-all duration-300 hover:shadow-soft backdrop-blur-sm"
+            className="border-border hover:bg-secondary hover:border-primary/50 transition-all duration-300 hover:shadow-soft"
           >
             <LogOut className="w-4 h-4 mr-2" />
             Cerrar Sesión
@@ -151,11 +152,11 @@ export function MainForm({ onLogout, username }: MainFormProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <Card className="shadow-strong bg-gradient-card border border-border/50 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+          <Card className="shadow-medium bg-gradient-card border border-border backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/3 via-transparent to-primary/3"></div>
             <CardHeader className="relative z-10">
               <CardTitle className="text-2xl text-foreground flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-soft">
                   <FileText className="w-5 h-5 text-primary-foreground" />
                 </div>
                 Configuración de Fechas
@@ -183,11 +184,11 @@ export function MainForm({ onLogout, username }: MainFormProps) {
             </CardContent>
           </Card>
 
-          <Card className="shadow-strong bg-gradient-card border border-border/50 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10"></div>
+          <Card className="shadow-medium bg-gradient-card border border-border backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5"></div>
             <CardHeader className="relative z-10">
               <CardTitle className="text-2xl text-foreground flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow animate-pulse">
+                <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-soft animate-pulse">
                   <Shield className="w-5 h-5 text-primary-foreground" />
                 </div>
                 Carga de Archivos
@@ -225,7 +226,7 @@ export function MainForm({ onLogout, username }: MainFormProps) {
 
           {/* Progress Indicator */}
           {allFieldsValid && (
-            <Alert className="border-success bg-success/10 shadow-glow animate-pulse backdrop-blur-sm">
+            <Alert className="border-success bg-success/5 shadow-soft animate-pulse backdrop-blur-sm">
               <CheckCircle className="h-5 w-5 text-success animate-spin-slow" />
               <AlertDescription className="text-success font-medium">
                 🎉 Todos los campos están completos. Puedes proceder con el envío.
@@ -237,7 +238,7 @@ export function MainForm({ onLogout, username }: MainFormProps) {
             <Button 
               type="submit" 
               disabled={!allFieldsValid || isSubmitting}
-              className="bg-gradient-primary hover:bg-primary-hover transition-all duration-500 shadow-glow hover:shadow-strong font-semibold px-12 py-3 text-lg hover:scale-105 disabled:hover:scale-100"
+              className="bg-gradient-primary hover:bg-primary-hover transition-all duration-500 shadow-medium hover:shadow-strong font-semibold px-12 py-3 text-lg hover:scale-105 disabled:hover:scale-100"
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-3">

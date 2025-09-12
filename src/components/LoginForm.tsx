@@ -44,10 +44,10 @@ export function LoginForm({ onLogin, error, isLoading }: LoginFormProps) {
 
   return (
     <div className="min-h-screen bg-gradient-secondary flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-medium bg-gradient-card border-0">
+      <Card className="w-full max-w-md shadow-medium bg-gradient-card border border-border">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
-            <Lock className="w-6 h-6 text-primary-foreground" />
+          <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 shadow-soft animate-pulse">
+            <Lock className="w-8 h-8 text-primary-foreground" />
           </div>
           <CardTitle className="text-2xl font-bold text-foreground">Iniciar Sesión</CardTitle>
           <CardDescription className="text-muted-foreground">
@@ -75,7 +75,7 @@ export function LoginForm({ onLogin, error, isLoading }: LoginFormProps) {
                   placeholder="Ingresa tu usuario"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="pl-10 border-input focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="pl-10 border-border focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                   disabled={isLoading}
                 />
               </div>
@@ -96,7 +96,7 @@ export function LoginForm({ onLogin, error, isLoading }: LoginFormProps) {
                   placeholder="Ingresa tu contraseña"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 border-input focus:ring-2 focus:ring-primary focus:border-primary"
+                  className="pl-10 border-border focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                   disabled={isLoading}
                 />
               </div>
